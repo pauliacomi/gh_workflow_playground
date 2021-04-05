@@ -1,0 +1,11 @@
+name: Testing
+
+on:
+  [create, push, pull_request, workflow_dispatch]
+
+jobs:
+  testing-one:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run tests
+      run: echo "RAN"

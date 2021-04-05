@@ -1,0 +1,24 @@
+name: Postprocess
+
+on:
+  workflow_run:
+    # When testing is finished
+    workflows:
+      - Testing
+    # And sucessful
+    types:
+      - completed
+    # On a new version only
+    tags:
+      - v*
+
+  # Allows running manually
+  workflow_dispatch:
+
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run after workflow
+      run: echo "Run after"
